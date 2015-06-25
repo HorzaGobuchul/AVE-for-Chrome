@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        AVE for Chrome
 // @author      Horza
-// @date        25 june 2015
+// @date        24 june 2015
 // @description Add new features to voat.co
 // @license     MIT; https://github.com/HorzaGobuchul/AVE-for-Chrome/blob/master/LICENSE
 // @match       *://voat.co/*
@@ -11,8 +11,8 @@
 // @grant       GM_setValue
 // @grant       GM_deleteValue
 // @run-at      document-end
-// @updateURL   https://github.com/HorzaGobuchul/AVE-for-Chrome/raw/master/AVEC_meta.user.js
-// @downloadURL https://github.com/HorzaGobuchul/AVE-for-Chrome/raw/master/AVEC.user.js
+// @updateURL   https://github.com/HorzaGobuchul/Amateur-Voat-Enhancements/raw/master/AVEC_meta.user.js
+// @downloadURL https://github.com/HorzaGobuchul/Amateur-Voat-Enhancements/raw/master/AVEC.user.js
 // @require     https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js
 // ==/UserScript==
 
@@ -39,9 +39,12 @@ $(window).ready(function () {
         data.option[key] = GM_getValue(key, true);
     }
     
-    
     if (data.option.FixedListHeader) {
         SetSubListHeaderPosAsFixed();
+    }
+    
+    if (data.option.FixedAccountHeader) {
+        SetAccountHeaderPosAsFixed();
     }
 
     if (data.option.EnableImage && $.inArray(data.currentPageType, ["subverses", "sets", "user", "user-manage", "mysets"]) == -1) {
@@ -398,28 +401,30 @@ $(document).keypress(function (event) {
 /// END ///
 
 /// Fixed position header-account info /// Put both feature in the same scroll function
-var headerAccountPos = $('#header-account').offset().top;
-$(window).scroll(function () {
-    if (!data.option.FixedAccountHeader) {return;}
-    
-    var topPos =  data.option.FixedListHeader ? ($(window).scrollTop() > 60 ? data.ListHeaderHeight : "0") : "0";
+function SetAccountHeaderPosAsFixed(){
+    var headerAccountPos = $('#header-account').offset().top;
+    $(window).scroll(function () {
+        if (!data.option.FixedAccountHeader) {return;}
 
-    if ($(window).scrollTop()  > headerAccountPos) {
-        $('#header-account').css('position', 'fixed')
-                            .css('z-index', '1000')
-                            .css('top', topPos)
-                            .css('right', '0')
-                            .css("text-align", "center")
-                            .css("height", "0px");
-        $('.logged-in').css("background", data.CSSstyle == "dark" ? "rgba(41, 41, 41, 0.80)" : "rgba(246, 246, 246, 0.80)");
-    } else {
-        $('#header-account').css('position', '')
-                            .css('top', '')
-                            .css("text-align", "")
-                            .css("height", "");
-        $('.logged-in').css("background", "");
-    }
-});
+        var topPos =  data.option.FixedListHeader ? ($(window).scrollTop() > 60 ? data.ListHeaderHeight : "0") : "0";
+
+        if ($(window).scrollTop()  > headerAccountPos) {
+            $('#header-account').css('position', 'fixed')
+            .css('z-index', '1000')
+            .css('top', topPos)
+            .css('right', '0')
+            .css("text-align", "center")
+            .css("height", "0px");
+            $('.logged-in').css("background", data.CSSstyle == "dark" ? "rgba(41, 41, 41, 0.80)" : "rgba(246, 246, 246, 0.80)");
+        } else {
+            $('#header-account').css('position', '')
+            .css('top', '')
+            .css("text-align", "")
+            .css("height", "");
+            $('.logged-in').css("background", "");
+        }
+    });
+}
 /// END ///
 
 /// Fixed position subverse list header ///
@@ -596,12 +601,12 @@ function InsertAVEManager() {
     for (var i in data.option) {
         MngHTML += '<div class="checkbox">'+
                        '<input '+ (data.option[i] ? 'checked="checked"' : '') +' id="' + i + '" name="' + i + '" value="' + data.option[i] + '" type="checkbox"></input>' +
-                       '<label for="' + i + '">' + Labels[i] + '</label>' +
+                       '<label for="' + i + '">' + Labels[i] + '</label>' +re
                    '</div>';
     }
 
-    MngHTML += '<br /><input value="Reset Stored Data" id="AVEPrefRest" class="btn btn-whoaverse" type="submit" title="Warning: this will delete your preferences, shortcut list and all usertags!"></input>';
-    MngHTML += '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input value="Save" id="AVEPrefSave" class="btn btn-whoaverse" type="submit" title="Save!"></input>';
+    MngHTML += '<br /><input value="Save" id="AVEPrefSave" class="btn btn-whoaverse" type="submit" title="Save!"></input>';
+    MngHTML += '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input value="Reset Stored Data" id="AVEPrefRest" class="btn btn-whoaverse" type="submit" title="Warning: this will delete your preferences, shortcut list and all usertags!"></input>';
     MngHTML += '</form></section><br />';
 
     $(MngHTML).insertBefore($(".alert-title").get(2));
