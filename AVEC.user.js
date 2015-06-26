@@ -24,7 +24,7 @@ data.option = {
     EnableTags: true,
     EnableSubHeader : true,
     EnableImage: true,
-    MediaTypes: "111", //Images, Videos, Self-text
+    MediaTypes: "110", //Images, Videos, Self-text
 };
 
 $(window).ready(function () {
