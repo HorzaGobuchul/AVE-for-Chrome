@@ -11,8 +11,8 @@
 // @grant       GM_setValue
 // @grant       GM_deleteValue
 // @run-at      document-end
-// @updateURL   https://github.com/HorzaGobuchul/Amateur-Voat-Enhancements/raw/master/AVEC_meta.user.js
-// @downloadURL https://github.com/HorzaGobuchul/Amateur-Voat-Enhancements/raw/master/AVEC.user.js
+// @updateURL   https://github.com/HorzaGobuchul/AVE-for-Chrome/raw/master/AVEC_meta.user.js
+// @downloadURL https://github.com/HorzaGobuchul/AVE-for-Chrome/raw/master/AVEC.user.js
 // @require     https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js
 // ==/UserScript==
 
