@@ -6,7 +6,7 @@
 // @license     MIT; https://github.com/HorzaGobuchul/AVE-for-Chrome/blob/master/LICENSE
 // @match       *://voat.co/*
 // @match       *://*.voat.co/*
-// @version     1.9.2.1
+// @version     1.9.2.2
 // @grant       GM_getValue
 // @grant       GM_setValue
 // @grant       GM_deleteValue
