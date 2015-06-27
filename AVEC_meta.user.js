@@ -1,12 +1,12 @@
 // ==UserScript==
 // @name        AVE for Chrome
 // @author      Horza
-// @date        2015-06-27
+// @date        2015-06-28
 // @description Add new features to voat.co
 // @license     MIT; https://github.com/HorzaGobuchul/AVE-for-Chrome/blob/master/LICENSE
 // @match       *://voat.co/*
 // @match       *://*.voat.co/*
-// @version     1.10.1.1
+// @version     1.10.1.2
 // @grant       GM_getValue
 // @grant       GM_setValue
 // @grant       GM_deleteValue
