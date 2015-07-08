@@ -2,7 +2,9 @@
 
 [AVE](https://github.com/HorzaGobuchul/Amateur-Voat-Enhancements) (Amateur Voat Enhancements), a [greasemonkey](http://www.greasespot.net/) usescript, is a light Enhancement Suite for Voat.co.
 
-This repo. contains the Chrome version for [TamperMonkey](http://tampermonkey.net)
+This repo. contains the Chrome version for [TamperMonkey](http://tampermonkey.net) that is not updated anymore.
+
+Get the [up to date version](https://github.com/HorzaGobuchul/Amateur-Voat-Enhancements/raw/master/Amateur-Voat-Enhancements.user.js) in this [repo](https://github.com/HorzaGobuchul/Amateur-Voat-Enhancements).
 
 ### It adds to Voat.co the possiblity to:
 
