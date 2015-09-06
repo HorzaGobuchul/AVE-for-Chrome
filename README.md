@@ -13,5 +13,3 @@ Get the [up to date version](https://github.com/HorzaGobuchul/Amateur-Voat-Enhan
 * Use A and Z to upvote and downvote
 * Replace the header list of subverses with [your own](https://i.imgur.com/qbh3fIq.jpg) (and even with sets)
 * Fix the position of the header list and of the user info to the [top of the screen](https://i.imgur.com/OLs5waM.png)
-
-a
